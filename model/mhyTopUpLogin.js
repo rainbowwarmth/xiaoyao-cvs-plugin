@@ -64,10 +64,10 @@ export default class mysTopLogin {
             await this.e.reply("stoken获取不完整请重新扫码", true);
             return false
         }
-        let UserData =  await this.user.getData("bbsGetCookie", {cookies:`stoken=${token}&uid=${uid}&mid=${mid}`},false)
+        let UserData =  await this.user.getData("exchange", { token , mid }, false)
         let stoken =`stoken=${token};stuid=${uid};mid=${mid}`
         return {
-            cookie: `ltoken=${token};ltuid=${uid};cookie_token=${UserData.data?.cookie_token}`,
+            cookie: `ltoken=${token};ltuid=${uid};cookie_token=${UserData?.data?.token?.token}`,
             stoken
         }
     }
