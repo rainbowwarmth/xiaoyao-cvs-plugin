@@ -817,7 +817,7 @@ export default class user {
     async seachUid(data) {
         let ltoken = '', v2Sk;
         if (data?.data) {
-            let res;
+            let res; 
             if (this.e.sk) {
                 if (this.e.sk.get('stoken').includes('v2_')) {
                     res = await this.getData('getLtoken', { cookies: this.e.raw_message }, false)
@@ -826,7 +826,7 @@ export default class user {
                     v2Sk = await this.getData('getByStokenV2', { headers: { Cookie: this.e.raw_message } }, false)
                 }
                 this.e.cookie =
-                    `ltoken=${this.e.sk?.get('ltoken') || ltoken};ltuid=${this.e.sk?.get('stuid')};cookie_token=${data.data.cookie_token}; account_id=${this.e.sk?.get('stuid')};`
+                    `ltoken=${this.e.sk?.get('ltoken') || ltoken};ltuid=${this.e.sk?.get('stuid')};cookie_token=${data.data.token.token}; account_id=${this.e.sk?.get('stuid')};`
                 // if(this.e.sk?.get('mid')){
                 // 	this.e.cookie =
                 // 		`ltoken_v2=${this.e.sk?.get('ltoken')||ltoken};cookie_token_v2=${data.data.cookie_token}; account_mid_v2=${this.e.sk.get('mid')};ltmid_v2=${this.e.sk.get('mid')}`
