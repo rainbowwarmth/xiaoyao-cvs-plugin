@@ -204,6 +204,18 @@ export default class miHoYoApi {
 				},
 				types: 'bbs'
 			},
+			exchange: {
+				url: `${mys.pass_api}/account/ma-cn-session/app/exchange`,
+				body: {
+					"src_token": {
+						"token": data.token,
+						"token_type": 1
+					},
+					"mid": data.mid,
+					"dst_token_type": 4
+				},
+				types: 'pass'
+			},
 			bbsGetCookie: {
 				url: `${this.apiMap.apiWeb}/auth/api/getCookieAccountInfoBySToken`,
 				query: `game_biz=hk4e_cn&${data.cookies}`,
